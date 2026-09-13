@@ -1,0 +1,496 @@
+
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Eco Lifestyle Agent — Architecture Blueprint</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, "Segoe UI", system-ui, sans-serif;
+    background: #0d1f0f;
+    color: #e8f5e9;
+    min-height: 100vh;
+    padding: 2rem 1.5rem;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: #a5d6a7;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.3rem;
+  }
+  .subtitle {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #66bb6a;
+    margin-bottom: 2rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .blueprint {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  /* ── Flow arrow label ── */
+  .flow-label {
+    text-align: center;
+    font-size: 0.72rem;
+    color: #81c784;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin: 0.2rem 0;
+  }
+
+  /* ── Arrow ── */
+  .arrow {
+    display: flex;
+    justify-content: center;
+    margin: 0.1rem 0;
+  }
+  .arrow svg { display: block; }
+
+  /* ── Layer boxes ── */
+  .layer {
+    border: 1.5px solid #2e7d32;
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 0.2rem;
+    position: relative;
+    background: #0a1a0b;
+  }
+  .layer-title {
+    position: absolute;
+    top: -11px;
+    left: 16px;
+    background: #0d1f0f;
+    padding: 0 8px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #66bb6a;
+  }
+
+  /* ── Card grid ── */
+  .card-row {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .card {
+    flex: 1;
+    min-width: 130px;
+    max-width: 200px;
+    background: #132b14;
+    border: 1px solid #2e7d32;
+    border-radius: 8px;
+    padding: 0.7rem 0.85rem;
+    text-align: center;
+  }
+  .card .icon { font-size: 1.5rem; margin-bottom: 0.3rem; }
+  .card .name { font-size: 0.82rem; font-weight: 700; color: #c8e6c9; }
+  .card .detail { font-size: 0.68rem; color: #81c784; margin-top: 0.2rem; line-height: 1.4; }
+
+  /* ── Wide card ── */
+  .card-wide {
+    flex: 2;
+    min-width: 260px;
+  }
+
+  /* ── User box ── */
+  .user-box {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.2rem;
+  }
+  .user-card {
+    background: #1b4332;
+    border: 2px solid #52b788;
+    border-radius: 50px;
+    padding: 0.65rem 2.5rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #b7e4c7;
+    letter-spacing: 0.04em;
+  }
+  .user-card span { font-size: 1.3rem; margin-right: 0.4rem; }
+
+  /* ── Pipeline steps ── */
+  .pipeline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+  .pipe-step {
+    background: #132b14;
+    border: 1px solid #388e3c;
+    border-radius: 8px;
+    padding: 0.55rem 0.75rem;
+    text-align: center;
+    min-width: 110px;
+    flex-shrink: 0;
+  }
+  .pipe-step .p-num {
+    font-size: 0.6rem;
+    color: #66bb6a;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .pipe-step .p-name {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #c8e6c9;
+    margin: 0.1rem 0;
+  }
+  .pipe-step .p-detail {
+    font-size: 0.63rem;
+    color: #81c784;
+  }
+  .pipe-arrow {
+    color: #52b788;
+    font-size: 1.1rem;
+    padding: 0 0.3rem;
+    flex-shrink: 0;
+  }
+
+  /* ── LLM fallback chain ── */
+  .fallback-chain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .llm-box {
+    background: #132b14;
+    border: 1px solid #43a047;
+    border-radius: 8px;
+    padding: 0.5rem 0.8rem;
+    text-align: center;
+    min-width: 120px;
+  }
+  .llm-box .llm-name { font-size: 0.8rem; font-weight: 700; color: #c8e6c9; }
+  .llm-box .llm-model { font-size: 0.65rem; color: #81c784; }
+  .llm-box .llm-badge {
+    display: inline-block;
+    font-size: 0.58rem;
+    padding: 1px 6px;
+    border-radius: 10px;
+    margin-top: 0.2rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .free { background: #1b5e20; color: #a5d6a7; }
+  .paid { background: #1a237e; color: #90caf9; }
+  .fb   { background: #3e2723; color: #ffcc80; }
+
+  .chain-arrow {
+    font-size: 0.7rem;
+    color: #66bb6a;
+    text-align: center;
+    line-height: 1;
+  }
+  .chain-arrow div { font-size: 0.6rem; color: #52b788; }
+
+  /* ── KB files ── */
+  .kb-grid {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .kb-file {
+    background: #0a1a0b;
+    border: 1px dashed #388e3c;
+    border-radius: 6px;
+    padding: 0.45rem 0.7rem;
+    font-size: 0.7rem;
+    color: #a5d6a7;
+    text-align: center;
+  }
+  .kb-file .kb-icon { font-size: 1rem; display: block; margin-bottom: 0.15rem; }
+
+  /* ── Legend ── */
+  .legend {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #1b5e20;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.72rem;
+    color: #81c784;
+  }
+  .leg-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ── Section dividers ── */
+  .section-gap { margin: 0.5rem 0; }
+
+  /* ── Highlight border colors ── */
+  .border-ui     { border-color: #52b788; }
+  .border-rag    { border-color: #1565c0; }
+  .border-llm    { border-color: #6a1b9a; }
+  .border-kb     { border-color: #e65100; }
+  .title-ui      { color: #52b788; }
+  .title-rag     { color: #64b5f6; }
+  .title-llm     { color: #ce93d8; }
+  .title-kb      { color: #ffb74d; }
+
+  footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #1b5e20;
+    font-size: 0.72rem;
+    color: #388e3c;
+  }
+</style>
+</head>
+<body>
+
+<div class="blueprint">
+
+  <h1>🌿 Eco Lifestyle Agent</h1>
+  <p class="subtitle">RAG-Powered Architecture Blueprint</p>
+
+  
+  <div class="user-box">
+    <div class="user-card"><span>👤</span> User (Browser)</div>
+  </div>
+
+  <div class="arrow">
+    <svg width="2" height="28"><line x1="1" y1="0" x2="1" y2="28" stroke="#52b788" stroke-width="2"></line></svg>
+  </div>
+  <div class="flow-label">Natural Language Question</div>
+  <div class="arrow">
+    <svg width="14" height="10"><polygon points="7,10 0,0 14,0" fill="#52b788"></polygon></svg>
+  </div>
+
+  
+  <div class="layer border-ui">
+    <div class="layer-title title-ui">① Presentation Layer</div>
+    <div class="card-row">
+      <div class="card">
+        <div class="icon">🖥️</div>
+        <div class="name">app.py</div>
+        <div class="detail">Streamlit Web UI<br />Chat interface<br />Sidebar config</div>
+      </div>
+      <div class="card">
+        <div class="icon">💬</div>
+        <div class="name">Chat History</div>
+        <div class="detail">Session state<br />Multi-turn context<br />Last 3 turns kept</div>
+      </div>
+      <div class="card">
+        <div class="icon">🎨</div>
+        <div class="name">UI Features</div>
+        <div class="detail">Suggested questions<br />Green theme CSS<br />Real-time spinner</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow"><svg width="2" height="22"><line x1="1" y1="0" x2="1" y2="22" stroke="#64b5f6" stroke-width="2"></line></svg></div>
+  <div class="flow-label" style="color:#64b5f6">Query dispatched to RAG Engine</div>
+  <div class="arrow"><svg width="14" height="10"><polygon points="7,10 0,0 14,0" fill="#64b5f6"></polygon></svg></div>
+
+  
+  <div class="layer border-rag" style="border-color:#1565c0">
+    <div class="layer-title title-rag">② RAG Engine  (rag/rag_engine.py)</div>
+
+    
+    <div class="pipeline">
+      <div class="pipe-step">
+        <div class="p-num">Step 1</div>
+        <div class="p-name">Load Docs</div>
+        <div class="p-detail">Read .txt files<br />from /knowledge_base</div>
+      </div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step">
+        <div class="p-num">Step 2</div>
+        <div class="p-name">Chunking</div>
+        <div class="p-detail">400-word chunks<br />80-word overlap</div>
+      </div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step">
+        <div class="p-num">Step 3</div>
+        <div class="p-name">TF-IDF Index</div>
+        <div class="p-detail">Term frequency<br />Inverse doc freq</div>
+      </div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step">
+        <div class="p-num">Step 4</div>
+        <div class="p-name">Retrieval</div>
+        <div class="p-detail">Cosine similarity<br />Top-5 chunks</div>
+      </div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step">
+        <div class="p-num">Step 5</div>
+        <div class="p-name">Context</div>
+        <div class="p-detail">Assemble ≤3,000<br />char context string</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow"><svg width="2" height="22"><line x1="1" y1="0" x2="1" y2="22" stroke="#ce93d8" stroke-width="2"></line></svg></div>
+  <div class="flow-label" style="color:#ce93d8">Context + Query → LLM Prompt</div>
+  <div class="arrow"><svg width="14" height="10"><polygon points="7,10 0,0 14,0" fill="#ce93d8"></polygon></svg></div>
+
+  
+  <div class="layer" style="border-color:#6a1b9a">
+    <div class="layer-title title-llm">③ LLM Layer  (agent.py) — Fallback Chain</div>
+    <div class="fallback-chain">
+
+      <div class="llm-box">
+        <div class="llm-name">🟢 Google Gemini</div>
+        <div class="llm-model">gemini-1.5-flash</div>
+        <div class="llm-badge free">PRIMARY · FREE</div>
+      </div>
+
+      <div class="chain-arrow">
+        →<div>if unavailable</div>
+      </div>
+
+      <div class="llm-box">
+        <div class="llm-name">🔵 OpenAI</div>
+        <div class="llm-model">gpt-4o-mini</div>
+        <div class="llm-badge paid">FALLBACK 1</div>
+      </div>
+
+      <div class="chain-arrow">
+        →<div>if unavailable</div>
+      </div>
+
+      <div class="llm-box">
+        <div class="llm-name">🟣 Groq</div>
+        <div class="llm-model">llama-3.3-70b</div>
+        <div class="llm-badge free">FALLBACK 2 · FREE</div>
+      </div>
+
+      <div class="chain-arrow">
+        →<div>if unavailable</div>
+      </div>
+
+      <div class="llm-box">
+        <div class="llm-name">🟠 Rule-Based</div>
+        <div class="llm-model">KB extraction</div>
+        <div class="llm-badge fb">ALWAYS WORKS</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="arrow"><svg width="2" height="22"><line x1="1" y1="0" x2="1" y2="22" stroke="#ffb74d" stroke-width="2"></line></svg></div>
+  <div class="flow-label" style="color:#ffb74d">Knowledge documents read at startup</div>
+  <div class="arrow"><svg width="14" height="10"><polygon points="7,10 0,0 14,0" fill="#ffb74d"></polygon></svg></div>
+
+  
+  <div class="layer" style="border-color:#e65100">
+    <div class="layer-title title-kb">④ Knowledge Base  (/knowledge_base/*.txt)</div>
+    <div class="kb-grid">
+      <div class="kb-file">
+        <span class="kb-icon">🌱</span>
+        sustainable_living_tips.txt<br />
+        <span style="color:#66bb6a;font-size:0.62rem">7 categories · 70+ tips</span>
+      </div>
+      <div class="kb-file">
+        <span class="kb-icon">🛍️</span>
+        eco_products.txt<br />
+        <span style="color:#66bb6a;font-size:0.62rem">20+ products · brand names</span>
+      </div>
+      <div class="kb-file">
+        <span class="kb-icon">♻️</span>
+        recycling_guidelines.txt<br />
+        <span style="color:#66bb6a;font-size:0.62rem">Rules · symbols · programs</span>
+      </div>
+      <div class="kb-file">
+        <span class="kb-icon">🏛️</span>
+        government_schemes.txt<br />
+        <span style="color:#66bb6a;font-size:0.62rem">India · USA · UK · EU · AU</span>
+      </div>
+      <div class="kb-file">
+        <span class="kb-icon">🚆</span>
+        eco_travel.txt<br />
+        <span style="color:#66bb6a;font-size:0.62rem">CO₂ table · transport modes</span>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="legend">
+    <div class="legend-item">
+      <div class="leg-dot" style="background:#52b788"></div> UI Layer
+    </div>
+    <div class="legend-item">
+      <div class="leg-dot" style="background:#64b5f6"></div> RAG Engine
+    </div>
+    <div class="legend-item">
+      <div class="leg-dot" style="background:#ce93d8"></div> LLM Providers
+    </div>
+    <div class="legend-item">
+      <div class="leg-dot" style="background:#ffb74d"></div> Knowledge Base
+    </div>
+    <div class="legend-item">
+      <div class="leg-dot" style="background:#1b5e20;border:1px solid #52b788"></div> Pure Python · No vector DB
+    </div>
+  </div>
+
+  
+  <div style="margin-top:1.5rem">
+    <div class="layer" style="border-color:#37474f;border-style:dashed">
+      <div class="layer-title" style="color:#90a4ae">⑤ Tech Stack</div>
+      <div class="card-row">
+        <div class="card" style="border-color:#37474f">
+          <div class="icon">🐍</div>
+          <div class="name">Python 3.8+</div>
+          <div class="detail">Core runtime</div>
+        </div>
+        <div class="card" style="border-color:#37474f">
+          <div class="icon">🎈</div>
+          <div class="name">Streamlit</div>
+          <div class="detail">Web framework<br />Chat UI</div>
+        </div>
+        <div class="card" style="border-color:#37474f">
+          <div class="icon">📐</div>
+          <div class="name">TF-IDF</div>
+          <div class="detail">Custom built<br />No sklearn needed</div>
+        </div>
+        <div class="card" style="border-color:#37474f">
+          <div class="icon">🔗</div>
+          <div class="name">REST APIs</div>
+          <div class="detail">Gemini / OpenAI<br />Groq SDKs</div>
+        </div>
+        <div class="card" style="border-color:#37474f">
+          <div class="icon">📄</div>
+          <div class="name">Plain Text KB</div>
+          <div class="detail">Easy to extend<br />Human readable</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>Made with IBM Bob  |  🌿 Eco Lifestyle Agent — RAG Architecture Blueprint</footer>
+
+</body>
+</html>

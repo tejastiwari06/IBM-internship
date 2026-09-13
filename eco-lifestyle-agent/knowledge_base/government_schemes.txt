@@ -1,0 +1,116 @@
+GOVERNMENT SCHEMES & POLICIES FOR SUSTAINABLE LIVING - ECO LIFESTYLE KNOWLEDGE BASE
+=======================================================================================
+
+INDIA - CENTRAL GOVERNMENT SCHEMES
+-------------------------------------
+
+Scheme: National Solar Mission (Jawaharlal Nehru National Solar Mission - JNNSM)
+Description: India's flagship program to promote solar energy production and use.
+Benefits for citizens:
+  - Subsidies available for rooftop solar panel installation (up to 40% for 1-3 kW systems).
+  - Net metering policy allows households to sell surplus solar electricity back to the grid.
+  - PM Surya Ghar Muft Bijli Yojana: 300 units of free electricity per month for solar adopters.
+How to apply: Visit pmsuryaghar.gov.in or contact local electricity distribution company (DISCOM).
+Impact: India aims for 500 GW of renewable energy by 2030.
+
+Scheme: UJALA Scheme (Unnat Jyoti by Affordable LEDs for All)
+Description: Distributes LED bulbs at subsidized rates to replace inefficient incandescent bulbs.
+Benefits: LED bulbs available at Rs. 70–120 vs. market price of Rs. 250+. 
+How to apply: Contact your electricity distribution company; show your electricity bill and ID.
+Impact: UJALA has distributed 367+ million LED bulbs, saving 47 billion units of electricity annually.
+
+Scheme: FAME India (Faster Adoption and Manufacturing of Hybrid and Electric Vehicles)
+Description: Subsidizes purchase of electric vehicles (EVs) — two-wheelers, three-wheelers, four-wheelers, and buses.
+Phase II Benefits:
+  - Subsidy of Rs. 10,000 per kWh on EV battery for two-wheelers.
+  - Subsidies for electric buses for public transport.
+  - Support for charging infrastructure development.
+How to apply: Subsidy applied at point of purchase from registered EV dealers.
+Website: fame2.heavyindustries.gov.in
+
+Scheme: National Biogas and Manure Management Programme (NBMMP)
+Description: Provides subsidies for setting up biogas plants at household and community levels.
+Benefits: Converts organic waste (kitchen scraps, cow dung) into clean cooking fuel and bio-slurry fertilizer.
+Subsidy: Central subsidy of Rs. 7,000–18,000 per biogas plant depending on size and region.
+How to apply: Apply through Khadi and Village Industries Commission (KVIC) or state nodal agency.
+
+Scheme: Swachh Bharat Mission (SBM)
+Description: National cleanliness and waste management initiative.
+Solid Waste Management Component:
+  - Community composting and waste segregation at source.
+  - Door-to-door waste collection and processing.
+  - Segregation into wet waste, dry recyclables, and domestic hazardous waste.
+How citizens benefit: Free household bins for waste segregation; community compost pits in many cities.
+Website: swachhbharat.mygov.in
+
+Scheme: National Clean Air Programme (NCAP)
+Description: Aims to reduce air pollution in 131 cities by 40% by 2026.
+Citizen benefits: Improved air quality monitoring; awareness programs; pollution reduction measures.
+Action for citizens: Use SAMEER app (System of Air Quality and Weather Forecasting and Research) to check local AQI.
+
+INDIA - STATE-LEVEL HIGHLIGHTS
+---------------------------------
+
+Kerala - Haritha Keralam Mission:
+  - Comprehensive waste management: plastic-free campaign, decentralized composting.
+  - Home Composting support: Free compost bins and training for households.
+  - Kudumbashree waste management units collect and process organic waste.
+
+Karnataka - Solar Policy:
+  - Rooftop solar subsidy up to 40% for residential customers.
+  - BESCOM (Bangalore Electricity Supply Company) offers net metering and group net metering.
+
+Maharashtra - Plastic Ban:
+  - Ban on single-use plastics including bags, cups, plates, cutlery, straws since 2018.
+  - Penalties: Rs. 5,000 for first offense; Rs. 10,000 for second; Rs. 25,000+ for third.
+
+Delhi - EV Policy 2020:
+  - Subsidy of Rs. 5,000/kWh (up to Rs. 30,000) for electric two-wheelers.
+  - Waiver of road tax and registration fee for EVs.
+  - Incentive for scrapping old polluting vehicles and switching to EV.
+
+INTERNATIONAL GOVERNMENT PROGRAMS
+------------------------------------
+
+United States:
+- Inflation Reduction Act (IRA) 2022: Up to $7,500 tax credit for new EVs, $4,000 for used EVs.
+- Home Efficiency Rebates: Up to $8,000 for heat pumps, $1,750 for heat pump water heaters.
+- Residential Clean Energy Credit: 30% tax credit for solar panels, battery storage, wind turbines.
+- ENERGY STAR Program: Free energy audits; rebates on efficient appliances through utilities.
+- Contact: energystar.gov for product rebates and home improvement credits.
+
+European Union:
+- EU Emissions Trading System (ETS): Carbon pricing that drives clean energy transition.
+- Renovation Wave Strategy: Financial support for building insulation and energy-efficient renovations.
+- European Green Deal: Aims for carbon neutrality by 2050; funds clean transport and clean energy.
+- Farm to Fork Strategy: Promotes sustainable, organic food systems.
+
+United Kingdom:
+- Boiler Upgrade Scheme: £7,500 grant for replacing gas boilers with heat pumps.
+- Electric Vehicle Charge Point Grant: Up to £350 off home EV charger installation.
+- Great British Insulation Scheme: Free or subsidized home insulation for eligible households.
+- Green Finance: Green mortgages and green bonds for energy-efficient home improvements.
+
+Australia:
+- Small-scale Renewable Energy Scheme (SRES): Certificates (STCs) that reduce the upfront cost of solar panels.
+- Electric Car Discount: FBT exemption for EVs priced below the luxury car tax threshold.
+- Household Energy Upgrades Fund: Low-interest loans for energy-efficient home improvements.
+
+GLOBAL CITIZEN ENGAGEMENT PROGRAMS
+--------------------------------------
+- UN Sustainable Development Goals (SDGs): Citizens can pledge action at un.org/sustainabledevelopment
+- WWF Earth Hour: Annual event; switch off lights for 1 hour on the last Saturday of March.
+- Plastic Free July: Global challenge to refuse single-use plastics; plasticfreejuly.org
+- Earth Day Network: April 22 — global campaigns, pledges, and local events; earthday.org
+- Climate Reality Project: Volunteer to become a Climate Reality Leader and educate others.
+- 1.5°C Pledge: Personal carbon reduction pledges aligned with Paris Agreement goals.
+- GoodPlanet Foundation: Educational programs on ecology and sustainable development.
+
+HOW TO FIND LOCAL PROGRAMS
+-----------------------------
+1. Search "[your city] + green rebates" or "[your state] + solar subsidy" on Google.
+2. Visit your local municipal corporation website for waste management and composting programs.
+3. Check your electricity company's website for LED and appliance upgrade rebates.
+4. Use the Database of State Incentives for Renewables & Efficiency at dsireusa.org.
+5. In India: Check rajyasabha.nic.in or pib.gov.in for the latest central government schemes.
+6. Visit energysavingtrust.org.uk for UK-specific grants and support programs.
